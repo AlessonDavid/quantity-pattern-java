@@ -30,4 +30,9 @@ public class LengthTest {
         assertEquals(new Length(25, Length.Unit.M), new Length(2500, Length.Unit.CM).in(Length.Unit.M));
     }
 
+    @Test
+    public void shouldConvert1CMTo10MM() {
+        assertEquals(new Length(10, Length.Unit.MM), new Length(1, Length.Unit.CM).in(Length.Unit.MM));
+    }
+
 }
