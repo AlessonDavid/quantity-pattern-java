@@ -35,4 +35,9 @@ public class LengthTest {
         assertEquals(new Length(10, Length.Unit.MM), new Length(1, Length.Unit.CM).in(Length.Unit.MM));
     }
 
+    @Test
+    public void shouldCreateLengthUsingFactoryMethodInUnit() {
+        assertEquals(new Length(1, Length.Unit.M), Length.Unit.M.s(1));
+    }
+
 }

@@ -11,6 +11,10 @@ public class Length {
         Unit(int scale) {
             this.scale = scale;
         }
+
+        public Length s(int value) {
+            return new Length(value, this);
+        }
     }
 
     private int value;
