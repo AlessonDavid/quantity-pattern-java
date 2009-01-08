@@ -4,7 +4,13 @@ package com.tw.obc;
 public class Length {
 
     public static enum Unit {
-        M;
+        M(100), CM(1);
+
+        private int scale;
+
+        Unit(int scale) {
+            this.scale = scale;
+        }
     }
 
     private int value;
@@ -16,7 +22,7 @@ public class Length {
     }
 
     public Length in(Unit targetUnit) {
-        return new Length(value, targetUnit);
+        return new Length(value * this.unit.scale / targetUnit.scale, targetUnit);
     }
 
     @Override
