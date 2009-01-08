@@ -40,4 +40,19 @@ public class LengthTest {
         assertEquals(new Length(1, Unit.M), Unit.M.s(1));
     }
 
+    @Test
+    public void shouldEquate1MWith100CM() {
+        assertEquals(Unit.CM.s(100), Unit.M.s(1));
+    }
+
+    @Test
+    public void shouldEquate12MWith1200CM() {
+        assertEquals(Unit.CM.s(1200), Unit.M.s(12));
+    }
+
+    @Test
+    public void shouldEquate15MWith15000mM() {
+        assertEquals(Unit.MM.s(15000), Unit.M.s(15));
+    }
+
 }

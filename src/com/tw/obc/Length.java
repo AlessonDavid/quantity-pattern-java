@@ -21,7 +21,7 @@ public class Length {
     }
 
     private boolean equals(Length other) {
-        return (other != null) && (other.unit == this.unit && other.value == this.value);
+        return (other != null) && (other.in(this.unit).value == this.value);
     }
 
     @Override
