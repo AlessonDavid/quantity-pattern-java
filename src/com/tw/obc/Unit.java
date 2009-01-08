@@ -2,7 +2,7 @@ package com.tw.obc;
 
 // Understands scale of a length
 public enum Unit {
-    M(1000), CM(10), MM(1);
+    KM(1000000), M(1000), CM(10), MM(1);
 
     public final int scale;
 

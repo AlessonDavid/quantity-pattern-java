@@ -51,8 +51,13 @@ public class LengthTest {
     }
 
     @Test
-    public void shouldEquate15MWith15000mM() {
+    public void shouldEquate15MWith15000MM() {
         assertEquals(Unit.MM.s(15000), Unit.M.s(15));
+    }
+
+    @Test
+    public void shouldEquate1KMWith1000000M() {
+        assertEquals(Unit.MM.s(1000000), Unit.KM.s(1));
     }
 
 }
