@@ -70,4 +70,22 @@ public class LengthTest {
         assertEquals(Unit.CM.s(500), Unit.CM.s(510).minus(Unit.MM.s(100)));
     }
 
+    @Test
+    public void shouldAllowFloatingPointArithmeticOnLength() {
+        assertEquals(Unit.CM.s(1.0d), Unit.CM.s(1));
+        assertEquals(Unit.CM.s(1.1d), Unit.MM.s(11).in(Unit.CM));
+        assertEquals(Unit.KM.s(0.005d), Unit.M.s(5));
+        assertEquals(Unit.KM.s(1d), Unit.KM.s(0.5d).plus(Unit.M.s(500)));
+    }
+
+    @Test
+    public void shouldYeildAppropriateHashCodes() {
+        assertEquals(Unit.M.s(1), Unit.M.s(1));
+        assertNotEquals(Unit.M.s(1), Unit.M.s(2));
+    }
+
+    private void assertNotEquals(Object expected, Object actual) {
+        assertFalse(expected.equals(actual));
+    }
+
 }
