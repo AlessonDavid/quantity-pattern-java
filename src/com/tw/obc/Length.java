@@ -3,20 +3,6 @@ package com.tw.obc;
 // Understands measurement of a single spatial dimension
 public class Length {
 
-    public static enum Unit {
-        M(1000), CM(10), MM(1);
-
-        private int scale;
-
-        Unit(int scale) {
-            this.scale = scale;
-        }
-
-        public Length s(int value) {
-            return new Length(value, this);
-        }
-    }
-
     private int value;
     private Unit unit;
 
