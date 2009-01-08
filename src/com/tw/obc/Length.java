@@ -11,8 +11,8 @@ public class Length {
         this.unit = unit;
     }
 
-    public Length in(Unit targetUnit) {
-        return new Length(this.value * this.unit.scale / targetUnit.scale, targetUnit);
+    public Length in(Unit otherUnit) {
+        return new Length(this.value * this.unit.scale / otherUnit.scale, otherUnit);
     }
 
     public Length plus(Length other) {
