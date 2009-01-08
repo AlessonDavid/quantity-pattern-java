@@ -12,7 +12,19 @@ public class Length {
     }
 
     public Length in(Unit targetUnit) {
-        return new Length(value * this.unit.scale / targetUnit.scale, targetUnit);
+        return new Length(this.value * this.unit.scale / targetUnit.scale, targetUnit);
+    }
+
+    public Length plus(Length other) {
+        return new Length(this.value + other.in(this.unit).value, this.unit);
+    }
+
+    public Length minus(Length other) {
+        return this.plus(other.negate());
+    }
+
+    private Length negate() {
+        return new Length(-this.value, this.unit);
     }
 
     @Override

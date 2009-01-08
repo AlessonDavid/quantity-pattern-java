@@ -60,4 +60,14 @@ public class LengthTest {
         assertEquals(Unit.MM.s(1000000), Unit.KM.s(1));
     }
 
+    @Test
+    public void shouldGive1KMWhen100CMAddedTo999M() {
+        assertEquals(Unit.KM.s(1), Unit.M.s(999).plus(Unit.CM.s(100)));
+    }
+
+    @Test
+    public void shouldGive500CMWhen100MMDeductedFrom510CM() {
+        assertEquals(Unit.CM.s(500), Unit.CM.s(510).minus(Unit.MM.s(100)));
+    }
+
 }
