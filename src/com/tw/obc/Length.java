@@ -2,22 +2,22 @@ package com.tw.obc;
 
 import java.math.BigDecimal;
 
-// Understands measurement of a single spatial dimension
+// Understands measurement of a 1D objects
 public class Length {
 
     private BigDecimal value;
-    private Unit unit;
+    private LengthUnit unit;
 
-    public Length(BigDecimal value,Unit unit) {
+    Length(BigDecimal value,LengthUnit unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public Length(double value,Unit unit) {
+    Length(double value,LengthUnit unit) {
         this(BigDecimal.valueOf(value), unit);
     }
 
-    public Length in(Unit otherUnit) {
+    public Length in(LengthUnit otherUnit) {
         return new Length(this.value.multiply(this.unit.scale).divide(otherUnit.scale), otherUnit);
     }
 
