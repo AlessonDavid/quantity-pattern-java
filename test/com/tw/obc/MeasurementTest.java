@@ -98,6 +98,9 @@ public class MeasurementTest {
     @Test
     public void shouldDealInTemperaturesToo() {
         assertEquals(Temperature.C.s(1), Temperature.C.s(1).in(Temperature.C));
+        assertEquals(Temperature.C.s(0), Temperature.K.s(273));
+        assertEquals(Temperature.C.s(-10), Temperature.C.s(10).minus(Temperature.C.s(20)));
+        assertEquals(Temperature.C.s(100), Temperature.K.s(323).plus(Temperature.C.s(-223)));
     }
 
 }
