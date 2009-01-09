@@ -3,16 +3,22 @@ package com.tw.obc;
 // Understands scale of 1D objects
 import java.math.BigDecimal;
 
-public enum LengthUnit {
-    KM(1000000), M(1000), CM(10), MM(1);
+public class LengthUnit extends Unit<LengthUnit> {
+    public static final LengthUnit KM = new LengthUnit("km", 1000000);
+    public static final LengthUnit  M = new LengthUnit( "m", 1000);
+    public static final LengthUnit CM = new LengthUnit("cm", 10);
+    public static final LengthUnit MM = new LengthUnit("mm", 1);
 
     public final BigDecimal scale;
 
-    LengthUnit(int scale) {
+    private LengthUnit(String name, int scale) {
+        super(name);
         this.scale = new BigDecimal(scale);
     }
 
-    public Length s(double value) {
-        return new Length(BigDecimal.valueOf(value), this);
+    @Override
+    public BigDecimal convertValueTo(BigDecimal value, LengthUnit other) {
+        return value.multiply(this.scale).divide(other.scale);
     }
+
 }

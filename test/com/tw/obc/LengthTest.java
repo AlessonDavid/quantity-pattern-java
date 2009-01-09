@@ -7,37 +7,37 @@ public class LengthTest {
 
     @Test
     public void shouldConvert1MTo1M() {
-        assertEquals(new Length(1, LengthUnit.M), new Length(1, LengthUnit.M).in(LengthUnit.M));
+        assertEquals(new Measurement(1, LengthUnit.M), new Measurement(1, LengthUnit.M).in(LengthUnit.M));
     }
 
     @Test
     public void shouldConvert1MTo100CM() {
-        assertEquals(new Length(100, LengthUnit.CM), new Length(1, LengthUnit.M).in(LengthUnit.CM));
+        assertEquals(new Measurement(100, LengthUnit.CM), new Measurement(1, LengthUnit.M).in(LengthUnit.CM));
     }
 
     @Test
     public void shouldConvert100CMTo1M() {
-        assertEquals(new Length(1, LengthUnit.M), new Length(100, LengthUnit.CM).in(LengthUnit.M));
+        assertEquals(new Measurement(1, LengthUnit.M), new Measurement(100, LengthUnit.CM).in(LengthUnit.M));
     }
 
     @Test
     public void shouldConvert2500CMTo25M() {
-        assertEquals(new Length(25, LengthUnit.M), new Length(2500, LengthUnit.CM).in(LengthUnit.M));
+        assertEquals(new Measurement(25, LengthUnit.M), new Measurement(2500, LengthUnit.CM).in(LengthUnit.M));
     }
 
     @Test
     public void shouldConvert11MTo1100CM() {
-        assertEquals(new Length(25, LengthUnit.M), new Length(2500, LengthUnit.CM).in(LengthUnit.M));
+        assertEquals(new Measurement(25, LengthUnit.M), new Measurement(2500, LengthUnit.CM).in(LengthUnit.M));
     }
 
     @Test
     public void shouldConvert1CMTo10MM() {
-        assertEquals(new Length(10, LengthUnit.MM), new Length(1, LengthUnit.CM).in(LengthUnit.MM));
+        assertEquals(new Measurement(10, LengthUnit.MM), new Measurement(1, LengthUnit.CM).in(LengthUnit.MM));
     }
 
     @Test
     public void shouldCreateLengthUsingFactoryMethodInUnit() {
-        assertEquals(new Length(1, LengthUnit.M), LengthUnit.M.s(1));
+        assertEquals(new Measurement(1, LengthUnit.M), LengthUnit.M.s(1));
     }
 
     @Test

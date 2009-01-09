@@ -1,13 +1,20 @@
 package com.tw.obc;
 
 // Understands scale of 3D odbjects
-
 import java.math.BigDecimal;
 
-public enum VolumeUnit {
-    L;
+public class VolumeUnit extends Unit<VolumeUnit> {
+    public static VolumeUnit L = new VolumeUnit("l", 1);
 
-    public Volume s(double value) {
-        return new Volume(BigDecimal.valueOf(value), this);
+    private BigDecimal scale;
+
+    public VolumeUnit(String name, int scale) {
+        super(name);
+        this.scale = new BigDecimal(scale);
+    }
+
+    @Override
+    public BigDecimal convertValueTo(BigDecimal value, VolumeUnit other) {
+        return value.multiply(this.scale).divide(other.scale);
     }
 }
