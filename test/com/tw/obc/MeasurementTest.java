@@ -91,6 +91,8 @@ public class MeasurementTest {
     @Test
     public void shouldConvert1LTo1L() {
         assertEquals(Volume.L.s(1), Volume.L.s(1).in(Volume.L));
+        assertEquals(Volume.L.s(0.001), Volume.ML.s(1).in(Volume.L));
+        assertEquals(Volume.ML.s(1500), Volume.L.s(0.8).plus(Volume.ML.s(700)));
     }
 
 }

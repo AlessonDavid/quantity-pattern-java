@@ -4,7 +4,8 @@ package com.tw.obc;
 import java.math.BigDecimal;
 
 public class Volume extends Unit<Volume> {
-    public static Volume L = new Volume("l", 1);
+    public static Volume  L = new Volume( "l", 1000);
+    public static Volume ML = new Volume("ml", 1);
 
     private BigDecimal scale;
 
