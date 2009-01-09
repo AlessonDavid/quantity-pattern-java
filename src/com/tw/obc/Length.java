@@ -1,8 +1,8 @@
 package com.tw.obc;
 
-// Understands scale of 1D objects
 import java.math.BigDecimal;
 
+// Understands scale of 1D objects
 public class Length extends Unit<Length> {
     public static final Length KM = new Length("km", 1000000);
     public static final Length  M = new Length( "m", 1000);
