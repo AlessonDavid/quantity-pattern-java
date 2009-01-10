@@ -84,10 +84,6 @@ public class MeasurementTest {
         assertNotEquals(Length.M.s(1), Length.M.s(2));
     }
 
-    private void assertNotEquals(Object expected, Object actual) {
-        assertFalse(expected.equals(actual));
-    }
-
     @Test
     public void shouldDealInVolumesToo() {
         assertEquals(Volume.L.s(1), Volume.L.s(1).in(Volume.L));
@@ -103,4 +99,12 @@ public class MeasurementTest {
         assertEquals(Temperature.C.s(100), Temperature.K.s(323).plus(Temperature.C.s(-223)));
     }
 
+    @Test
+    public void shouldDealInWeights() {
+        assertEquals(Weight.G.s(100), Weight.KG.s(0.1d));
+    }
+
+    private void assertNotEquals(Object expected, Object actual) {
+        assertFalse(expected.equals(actual));
+    }
 }

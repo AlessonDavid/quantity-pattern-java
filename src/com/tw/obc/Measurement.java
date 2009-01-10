@@ -17,20 +17,20 @@ public class Measurement<U extends Unit> {
         this(BigDecimal.valueOf(value), unit);
     }
 
-    public Measurement in(U otherUnit) {
-        return new Measurement(this.unit.convertValueTo(this.magnitude, otherUnit), otherUnit);
+    public Measurement<U> in(U otherUnit) {
+        return new Measurement<U>(this.unit.convertValueTo(this.magnitude, otherUnit), otherUnit);
     }
 
-    public Measurement plus(Measurement other) {
-        return new Measurement(this.magnitude.add(other.in(this.unit).magnitude), this.unit);
+    public Measurement<U> plus(Measurement<U> other) {
+        return new Measurement<U>(this.magnitude.add(other.in(this.unit).magnitude), this.unit);
     }
 
-    public Measurement minus(Measurement other) {
+    public Measurement<U> minus(Measurement<U> other) {
         return this.plus(other.negate());
     }
 
-    private Measurement negate() {
-        return new Measurement(this.magnitude.negate(), this.unit);
+    private Measurement<U> negate() {
+        return new Measurement<U>(this.magnitude.negate(), this.unit);
     }
 
     @Override
