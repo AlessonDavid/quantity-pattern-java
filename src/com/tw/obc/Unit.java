@@ -15,7 +15,7 @@ public abstract class Unit<U extends Unit<U>> {
 
     @SuppressWarnings("unchecked")
     public Measurement<U> s(double value) {
-        return new Measurement(BigDecimal.valueOf(value), this);
+        return new Measurement<U>(BigDecimal.valueOf(value), (U)this);
     }
 
 }
