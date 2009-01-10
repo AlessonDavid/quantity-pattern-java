@@ -7,37 +7,37 @@ public class MeasurementTest {
 
     @Test
     public void shouldConvert1MTo1M() {
-        assertEquals(new Measurement(1, Length.M), new Measurement(1, Length.M).in(Length.M));
+        assertEquals(Length.M.s(1), Length.M.s(1).in(Length.M));
     }
 
     @Test
     public void shouldConvert1MTo100CM() {
-        assertEquals(new Measurement(100, Length.CM), new Measurement(1, Length.M).in(Length.CM));
+        assertEquals(Length.CM.s(100), Length.M.s(1).in(Length.CM));
     }
 
     @Test
     public void shouldConvert100CMTo1M() {
-        assertEquals(new Measurement(1, Length.M), new Measurement(100, Length.CM).in(Length.M));
+        assertEquals(Length.M.s(1), Length.CM.s(100).in(Length.M));
     }
 
     @Test
     public void shouldConvert2500CMTo25M() {
-        assertEquals(new Measurement(25, Length.M), new Measurement(2500, Length.CM).in(Length.M));
+        assertEquals(Length.M.s(25), Length.CM.s(2500).in(Length.M));
     }
 
     @Test
     public void shouldConvert11MTo1100CM() {
-        assertEquals(new Measurement(25, Length.M), new Measurement(2500, Length.CM).in(Length.M));
+        assertEquals(Length.M.s(25), Length.CM.s(2500).in(Length.M));
     }
 
     @Test
     public void shouldConvert1CMTo10MM() {
-        assertEquals(new Measurement(10, Length.MM), new Measurement(1, Length.CM).in(Length.MM));
+        assertEquals(Length.MM.s(10), Length.CM.s(1).in(Length.MM));
     }
 
     @Test
     public void shouldCreateLengthUsingFactoryMethodInUnit() {
-        assertEquals(new Measurement(1, Length.M), Length.M.s(1));
+        assertEquals(Length.M.s(1), Length.M.s(1));
     }
 
     @Test
@@ -102,6 +102,11 @@ public class MeasurementTest {
     @Test
     public void shouldDealInWeights() {
         assertEquals(Weight.G.s(100), Weight.KG.s(0.1d));
+    }
+
+    @Test
+    public void shouldNotEquateMeasuresOfDifferentUnits() {
+        assertNotEquals(Length.M.s(1), Volume.L.s(1));
     }
 
     private void assertNotEquals(Object expected, Object actual) {

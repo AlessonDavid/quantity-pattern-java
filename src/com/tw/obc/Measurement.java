@@ -3,7 +3,7 @@ package com.tw.obc;
 import java.math.BigDecimal;
 
 // Understands application of magnitude to unit
-public class Measurement<U extends Unit> {
+public class Measurement<U extends Unit<U>> {
 
     private BigDecimal magnitude;
     private U unit;
@@ -35,11 +35,18 @@ public class Measurement<U extends Unit> {
 
     @Override
     public boolean equals(Object other) {
-        return (other == this) || ((getClass() == other.getClass()) && equals((Measurement)other));
+        return (other == this) || (
+            other.getClass() == this.getClass() &&
+            equals((Measurement)other)
+        );
     }
 
+    @SuppressWarnings("unchecked")
     private boolean equals(Measurement other) {
-        return (other != null) && (other.in(this.unit).magnitude.compareTo(this.magnitude) == 0);
+        return (other != null) && (
+            other.unit.getClass() == this.unit.getClass() &&
+            other.in(this.unit).magnitude.compareTo(this.magnitude) == 0
+        );
     }
 
     @Override
