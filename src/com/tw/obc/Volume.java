@@ -9,13 +9,13 @@ public class Volume extends Unit<Volume> {
 
     private BigDecimal scale;
 
-    public Volume(String name, int scale) {
-        super(name);
+    private Volume(String name, int scale) {
+        super(name, new ScalingConverter(new BigDecimal(scale)));
         this.scale = new BigDecimal(scale);
     }
 
     @Override
     public BigDecimal convertValueTo(BigDecimal value, Volume other) {
-        return value.multiply(this.scale).divide(other.scale);
+        return converter.convertValueTo(value, other.scale);
     }
 }

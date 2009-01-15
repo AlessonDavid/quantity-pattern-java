@@ -7,8 +7,11 @@ public abstract class Unit<U extends Unit<U>> {
 
     public final String name;
 
-    public Unit(String name) {
+    protected Converter converter;
+
+    public Unit(String name, Converter converter) {
         this.name = name;
+        this.converter = converter;
     }
 
     public abstract BigDecimal convertValueTo(BigDecimal value, U other);

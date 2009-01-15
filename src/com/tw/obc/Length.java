@@ -9,16 +9,15 @@ public class Length extends Unit<Length> {
     public static final Length CM = new Length("cm", 10);
     public static final Length MM = new Length("mm", 1);
 
-    public final BigDecimal scale;
+    private BigDecimal scale;
 
     private Length(String name, int scale) {
-        super(name);
+        super(name, new ScalingConverter(new BigDecimal(scale)));
         this.scale = new BigDecimal(scale);
     }
 
     @Override
     public BigDecimal convertValueTo(BigDecimal value, Length other) {
-        return value.multiply(this.scale).divide(other.scale);
+        return converter.convertValueTo(value, other.scale);
     }
-
 }
