@@ -100,10 +100,9 @@ public class MeasurementTest {
         assertEquals(Temperature.C.s(100), Temperature.K.s(323).plus(Temperature.C.s(-223)));
     }
 
-    @Test @Ignore
+    @Test
     public void shouldDealInWeights() {
-        fail("pending impl of Weight");
-//        assertEquals(Weight.G.s(100), Weight.KG.s(0.1d));
+        assertEquals(Weight.G.s(100), Weight.KG.s(0.1d));
     }
 
     @Test
