@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 // Understands measurement scale with denominations that vary by fixed factors
 public class ScaledUnit<U extends ScaledUnit> extends Unit<ScaledUnit<U>> {
-    public final BigDecimal scale;
+    private final BigDecimal scale;
 
     public ScaledUnit(String name, int scale) {
         super(name);
