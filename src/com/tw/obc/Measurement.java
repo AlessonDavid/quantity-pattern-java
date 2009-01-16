@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 // Understands application of magnitude to unit
 public class Measurement<U extends Unit<U>> {
 
-    private BigDecimal magnitude;
-    private U unit;
+    private final BigDecimal magnitude;
+    private final U unit;
 
     Measurement(BigDecimal value, U unit) {
         this.magnitude = value;
@@ -59,7 +59,7 @@ public class Measurement<U extends Unit<U>> {
 
     @Override
     public String toString() {
-        return magnitude + unit.name;
+        return magnitude + unit.toString();
     }
 
 }
