@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 // Understands a scale of measurement
 public abstract class Unit<U extends Unit<U>> {
 
-    public final String name;
+    private final String name;
 
     public Unit(String name) {
         this.name = name;
@@ -16,6 +16,11 @@ public abstract class Unit<U extends Unit<U>> {
     @SuppressWarnings("unchecked")
     public Measurement<U> s(double value) {
         return new Measurement<U>(BigDecimal.valueOf(value), (U)this);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }
