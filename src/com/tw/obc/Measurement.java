@@ -3,7 +3,7 @@ package com.tw.obc;
 import java.math.BigDecimal;
 
 // Understands application of magnitude to unit
-public class Measurement<U extends Unit<U>> {
+public class Measurement<U extends Unit<? super U>> {
 
     private final BigDecimal magnitude;
     private final U unit;

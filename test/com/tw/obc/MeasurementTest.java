@@ -1,6 +1,7 @@
 package com.tw.obc;
 
 import com.tw.obc.unit.Length;
+import com.tw.obc.unit.ScaledUnit;
 import com.tw.obc.unit.Temperature;
 import com.tw.obc.unit.Weight;
 import com.tw.obc.unit.Volume;
@@ -116,6 +117,13 @@ public class MeasurementTest {
         final Measurement measure = Length.M.s(1);
         final Measurement other = Volume.L.s(1);
         assertThat(measure, is(not(other)));
+    }
+
+    @Test
+    public void shoudlStillBeAbleToUseConstructor() {
+        final Measurement measure = new Measurement<Length>(1.0, Length.M);
+        final Measurement other = Length.M.s(1.0);
+        assertThat(measure, is(other));
     }
 
 }
