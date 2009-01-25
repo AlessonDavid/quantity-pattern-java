@@ -14,7 +14,7 @@ public abstract class Unit<U extends Unit<U>> {
     public abstract BigDecimal convertValueTo(BigDecimal value, U other);
 
     @SuppressWarnings("unchecked")
-    public Measurement<U> s(double value) {
+    public final Measurement<U> s(double value) {
         return new Measurement<U>(BigDecimal.valueOf(value), (U)this);
     }
 
