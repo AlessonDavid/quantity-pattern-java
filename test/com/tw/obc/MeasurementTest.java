@@ -88,8 +88,8 @@ public class MeasurementTest {
 
     @Test
     public void shouldYeildAppropriateHashCodes() {
-        assertThat(Length.M.s(1), is(Length.M.s(1)));
-        assertThat(Length.M.s(1), is(not(Length.M.s(2))));
+        assertThat(Length.M.s(1).hashCode(), is(Length.M.s(1).hashCode()));
+        assertThat(Length.M.s(1).hashCode(), is(not(Length.M.s(2).hashCode())));
     }
 
     @Test
