@@ -1,6 +1,6 @@
-package com.tw.obc.unit;
+package com.dexterous.pattern.unit;
 
-import com.tw.obc.*;
+import com.dexterous.pattern.Unit;
 import java.math.BigDecimal;
 
 // Understands measurement scale with denominations that vary by fixed factors

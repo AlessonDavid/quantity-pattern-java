@@ -1,4 +1,4 @@
-package com.tw.obc;
+package com.dexterous.pattern;
 
 import java.math.BigDecimal;
 
@@ -34,15 +34,15 @@ public class Measurement<U extends Unit<? super U>> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean equals(Object other) {
         return (other == this) || (
             other.getClass() == this.getClass() &&
-            equals((Measurement)other)
+            equals((Measurement<U>)other)
         );
     }
 
-    @SuppressWarnings("unchecked")
-    private boolean equals(Measurement other) {
+    private boolean equals(Measurement<U> other) {
         return (other != null) && (
             other.unit.getClass() == this.unit.getClass() &&
             other.in(this.unit).magnitude.compareTo(this.magnitude) == 0

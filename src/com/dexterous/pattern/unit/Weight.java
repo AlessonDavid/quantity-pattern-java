@@ -1,4 +1,4 @@
-package com.tw.obc.unit;
+package com.dexterous.pattern.unit;
 
 // Understands scale of mass
 public class Weight extends ScaledUnit<Weight> {
