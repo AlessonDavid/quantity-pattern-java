@@ -1,15 +1,15 @@
-package com.tw.obc;
+package com.dexterous.pattern;
 
-import static com.tw.obc.unit.Length.*;
-import static com.tw.obc.unit.Temperature.*;
-import static com.tw.obc.unit.Weight.*;
-import static com.tw.obc.unit.Volume.*;
+import static com.dexterous.pattern.unit.Length.*;
+import static com.dexterous.pattern.unit.Temperature.*;
+import static com.dexterous.pattern.unit.Weight.*;
+import static com.dexterous.pattern.unit.Volume.*;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
-import com.tw.obc.unit.Length;
+import com.dexterous.pattern.unit.Length;
 
 import org.junit.Test;
 
