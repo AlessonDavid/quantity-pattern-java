@@ -1,0 +1,1 @@
+An implementation of the patter described here => http://martinfowler.com/ap2/quantity.html, along with some concrete dimensions/units
